@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: single
 title: Home
 ---
 
-Here is an inline equation: \(E = mc^2\).
+Here is an inline equation: \\(E = mc^2\\).
 
 And a block equation:
 $$
