@@ -3,6 +3,8 @@ layout: default
 title: Home
 ---
 
+Welcome
+
 Here is an inline equation: \\(E = mc^2\\).
 
 And a block equation:
