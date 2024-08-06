@@ -14,4 +14,3 @@ end
 
 gem 'wdm', '>= 0.1.1', platforms: [:mingw, :mswin, :x64_mingw]
 gem "http_parser.rb", "~> 0.6.0", platforms: [:jruby]
-
