@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>{{ site.title }}</h1>
+    <h1>{{ page.title }}</h1>
   </header>
   <div class="content-wrapper">
     <aside>
@@ -20,7 +20,7 @@
     </main>
   </div>
   <footer>
-    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+    <p>&copy; {{ page.time | date: '%Y' }} {{ page.title }}</p>
   </footer>
 </body>
 </html>
