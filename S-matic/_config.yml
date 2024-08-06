@@ -29,6 +29,13 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  mathjax:
+    path: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+
+
 # Build settings
 remote_theme: kitian616/jekyll-TeXt-theme
 plugins:
