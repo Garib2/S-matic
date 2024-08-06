@@ -1,2 +1,2 @@
-# S-metic
+# S-matic
 Math-NOTE
