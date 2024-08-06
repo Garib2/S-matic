@@ -1,6 +1,11 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: default
+title: Home
 ---
+
+Here is an inline equation: \(E = mc^2\).
+
+And a block equation:
+$$
+a^2 + b^2 = c^2
+$$
