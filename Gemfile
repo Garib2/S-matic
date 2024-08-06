@@ -3,8 +3,6 @@ source "https://rubygems.org"
 gem "github-pages", group: :jekyll_plugins
 gem "faraday-retry"
 
-# Jekyll 테마 및 플러그인
-gem "jekyll-theme-text", "~> 2.0"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
