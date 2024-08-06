@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   {% include head.html %}
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
   <header>
     <h1>{{ site.title }}</h1>
   </header>
-  <main>
-    {{ content }}
-  </main>
+  <div class="content-wrapper">
+    <aside>
+      {% include toc.html %}
+    </aside>
+    <main>
+      {{ content }}
+    </main>
+  </div>
   <footer>
     <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
   </footer>
