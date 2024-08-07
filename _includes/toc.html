@@ -1,6 +1,23 @@
 <nav id="toc">
-  <h2>INDEX</h2>
-  <ul>
-    {{ content | toc_only }}
-  </ul>
+  <h2>Table of Contents</h2>
+  <ul id="toc-list"></ul>
 </nav>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const tocList = document.getElementById('toc-list');
+    const headers = document.querySelectorAll('main h2, main h3'); // 필요한 헤더 레벨만 선택
+    headers.forEach(header => {
+      if (!header.id) {
+        header.id = header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      }
+      const id = header.id;
+      const text = header.textContent;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.textContent = text;
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+  });
+</script>
