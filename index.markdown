@@ -3,6 +3,7 @@ layout: default
 title: Home
 toc: true
 ---
+{% include_relative toc.md %}
 
 ## Section 1
 Content for section 1.
