@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  {% include head.html %}
+  <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
   <header>
-    <h1>{{ page.title }}</h1>
+    <h1 class="site-title">{{ site.title }}</h1>
   </header>
   <div class="content-wrapper">
     <aside>
@@ -19,8 +18,6 @@
       {{ content }}
     </main>
   </div>
-  <footer>
-    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
-  </footer>
+  {% include footer.html %}
 </body>
 </html>
