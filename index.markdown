@@ -2,8 +2,6 @@
 layout: default
 title: Home
 ---
-* TOC
-{:toc}
 
 ## Section 1
 Content for section 1.
