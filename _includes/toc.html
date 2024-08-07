@@ -1,8 +1,7 @@
 <nav id="toc">
   <h2>Table of Contents</h2>
   <ul>
-    {% for heading in page.toc %}
-      <li><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
-    {% endfor %}
+    {% capture toc %}{% for heading in page.content | split: "<h2" %}{% if forloop.first == false %}<li><a href="#{{ heading | split: 'id="' | last | split: '"' | first }}">{{ heading | split: ">" | last | split: "<" | first }}</a></li>{% endif %}{% endfor %}{% endcapture %}
+    {{ toc | strip_html }}
   </ul>
 </nav>
