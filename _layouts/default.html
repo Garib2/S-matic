@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
-  <header>
-    <h1 class="site-title">{{ page.title }}</h1>
-  </header>
+  {% include header.html %}
   <div class="content-wrapper">
     <aside>
       {% include toc.html %}
