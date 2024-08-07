@@ -3,7 +3,6 @@ layout: default
 title: Home
 toc: true
 ---
-{% include_relative toc.md %}
 
 ## Section 1
 Content for section 1.
@@ -14,6 +13,7 @@ Content for section 2.
 ## Section 3
 Content for section 3.
 
+<div class="no_toc_section">
 Welcome
 
 Here is an inline equation: \\(E = mc^2\\).
