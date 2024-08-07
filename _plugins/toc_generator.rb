@@ -1,7 +1,7 @@
-Jekyll::Hooks.register :pages, :pre_render do |page|
-  if page.extname == '.md'
+Jekyll::Hooks.register :pages, :post_render do |page|
+  if page.extname == ".html"
     toc = []
-    page.content.scan(/<h(\d) id="(.*?)">(.*?)<\/h\1>/).each do |level, id, text|
+    page.output.scan(/<h(\d) id="(.*?)">(.*?)<\/h\1>/).each do |level, id, text|
       toc << {
         'level' => level.to_i,
         'id' => id,
