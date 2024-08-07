@@ -3,7 +3,7 @@ layout: default
 title: Home
 toc: true
 ---
-<div class="no_toc_section">
+
 ## Section 1
 Content for section 1.
 ## Section 2
