@@ -1,13 +1,8 @@
 <nav id="toc">
   <h2>Table of Contents</h2>
   <ul>
-    {% assign headers = page.content | split: '<h2>' %}
-    {% for header in headers %}
-      {% if forloop.first == false %}
-        {% assign title = header | split: '</h2>' | first %}
-        {% assign link = title | downcase | replace: ' ', '-' | replace: ',', '' | replace: '.', '' | strip %}
-        <li><a href="#{{ link | slugify }}">{{ title | strip_html | strip }}</a></li>
-      {% endif %}
+    {% for header in page.headers %}
+      <li><a href="#{{ header.id }}">{{ header.text }}</a></li>
     {% endfor %}
   </ul>
 </nav>
