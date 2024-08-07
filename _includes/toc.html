@@ -1,8 +1,13 @@
 <nav id="toc">
   <h2> INDEX </h2>
   <ul>
-    {% for post in site.posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% assign headers = page.content | split: '<h2>'%}
+      {% for header in headers %}
+      {% if forloop.first == false%}
+      {% assign title = header | split: '</h2>'|first %}
+    {%assign link = title  | downcase| replace: ' ', '-'%}
+    <li><a href="#{{link}}">{{title}}</a></li>
+    {% endif %}
     {% endfor %}
   </ul>
 </nav>
