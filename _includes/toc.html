@@ -1,4 +1,8 @@
-<!-- _includes/toc.html -->
-<div id="table-of-contents">
-  {{ content | toc_only }}
-</div>
+<nav id="toc">
+  <h2>Table of Contents</h2>
+  <ul>
+    {% for heading in page.toc %}
+      <li><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
