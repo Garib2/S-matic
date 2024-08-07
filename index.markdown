@@ -2,6 +2,14 @@
 layout: default
 title: Home
 ---
+## Section 1 {#section-1}
+Content for section 1.
+
+## Section 2 {#section-2}
+Content for section 2.
+
+## Section 3 {#section-3}
+Content for section 3.
 
 Welcome
 
