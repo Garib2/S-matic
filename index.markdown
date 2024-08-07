@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+toc: true
 ---
 
 ## Section 1
