@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
   {% include head.html %}
+  <link rel="stylesheet" href="{{ '/S-matic/assets/css/main.css' | relative_url }}">
+  <script src="{{ '/S-matic/assets/js/main.js' | relative_url }}" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   {% include header.html %}
   <div class="content-wrapper">
-    <aside>
+    <aside class="left-sidebar">
       {% include toc.html %}
     </aside>
     <main>
-      {{ content | inject_anchors }}
+      <h1 class="page-title">{{ page.title }}</h1>
+      {{ content }}
     </main>
+    <aside class="right-sidebar">
+      {% include ads.html %}
+    </aside>
   </div>
+  {% include footer.html %}
 </body>
 </html>
