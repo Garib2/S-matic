@@ -1,8 +1,9 @@
 ---
 layout: none
+permalink: /search.json
 ---
 [
-{% for page in site.pages %}
+{% for page in site.html_pages %}
   {
     "title": "{{ page.title | escape }}",
     "url": "{{ page.url | escape }}"
