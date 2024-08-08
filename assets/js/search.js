@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
   
-  fetch('{{ "/search.json" | relative_url }}')
+  fetch('{{ "/S-matic/search.json" | relative_url }}')
     .then(response => response.json())
     .then(pages => {
       searchInput.addEventListener('input', function() {
