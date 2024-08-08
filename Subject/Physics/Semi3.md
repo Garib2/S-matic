@@ -13,4 +13,10 @@ permalink: /info/physics/Semi2/
 
 ## Depeletion Capacitance
 
-## 
+## Current-Voltage Characteristics
+
+## Charge Storage and Transient Behavior
+
+## Junction Breakdown
+
+## Heterojunction
