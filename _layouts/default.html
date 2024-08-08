@@ -12,7 +12,7 @@
     </aside>
     <main>
       <h1 class="page-title">{{ page.title }}</h1>
-      {{ content }}
+      {{ content | inject_anchors }}
     </main>
     <aside class="right-sidebar">
       {% include ads.html %}
