@@ -15,9 +15,6 @@ plugins:
   - jekyll-remote-theme
   - jekyll-feed
   - jekyll-toc
-include:
-  - _pages
-  - search.json
 toc:
   min_level: 2
   max_level: 3
