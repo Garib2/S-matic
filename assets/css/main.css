@@ -171,3 +171,40 @@ footer {
   color: #fff;
   text-decoration: none;
 }
+
+#search-container {
+  position: relative;
+}
+
+#search-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+#search-results {
+  list-style: none;
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+#search-results li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+#search-results li a {
+  text-decoration: none;
+  color: #333;
+}
+
+#search-results li a:hover {
+  background: #f0f0f0;
+}
+
