@@ -6,12 +6,16 @@
 <body>
   {% include header.html %}
   <div class="content-wrapper">
-    <aside>
+    <aside class="left-sidebar">
       {% include toc.html %}
     </aside>
     <main>
-      {{ content | inject_anchors }}
+      {{ content }}
     </main>
+    <aside class="right-sidebar">
+      {% include ads.html %}
+    </aside>
   </div>
+  {% include footer.html %}
 </body>
 </html>
