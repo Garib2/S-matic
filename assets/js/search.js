@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(pages => {
         searchResults.innerHTML = '';
         pages.forEach(page => {
-          if (page.title.toLowerCase().includes(query) || page.content.toLowerCase().includes(query)) {
+          if (page.title.toLowerCase().includes(query)) {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.href = page.url;
