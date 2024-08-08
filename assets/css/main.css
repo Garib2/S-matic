@@ -36,9 +36,18 @@ header nav ul li a {
   margin: 20px;
 }
 
-aside {
+.left-sidebar {
   width: 250px;
   margin-right: 20px;
+}
+
+.right-sidebar {
+  width: 250px;
+  margin-left: 20px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 main {
@@ -76,4 +85,19 @@ main {
 
 #toc ul li a:hover {
   text-decoration: underline;
+}
+
+.ad-container {
+  margin-top: 20px;
+}
+
+.ad-container h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.ad-content {
+  background: #e9ecef;
+  padding: 10px;
+  border-radius: 5px;
 }
