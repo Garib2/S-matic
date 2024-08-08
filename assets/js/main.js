@@ -18,7 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    const filteredPages = pages.filter(page => page.title.toLowerCase().includes(query));
+    const filteredPages = pages.filter(page => {
+      if (page.title) {
+        return page.title.toLowerCase().includes(query);
+      }
+      return false;
+    });
 
     filteredPages.forEach(page => {
       const li = document.createElement('li');
