@@ -1,6 +1,9 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header {
@@ -8,6 +11,9 @@ header {
   color: #fff;
   padding: 1rem 0;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header .site-title {
@@ -31,116 +37,38 @@ header nav ul li a {
   text-decoration: none;
 }
 
-.content-wrapper {
-  display: flex;
-  margin: 20px;
-}
-
-.left-sidebar {
-  width: 250px;
-  margin-right: 20px;
-}
-
-.right-sidebar {
-  width: 250px;
-  margin-left: 20px;
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-main {
-  flex-grow: 1;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.page-title {
-  font-size: 2.5em;
-  margin-top: 0;
-}
-
-#toc {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-#toc h2 {
-  margin-top: 0;
-}
-
-#toc ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-#toc ul li {
-  margin: 10px 0;
-}
-
-#toc ul li a {
-  text-decoration: none;
-  color: #007bff;
-}
-
-#toc ul li a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem 0;
+#search-container {
   position: relative;
-  bottom: 0;
-  width: 100%;
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+#search-input {
+  padding: 0.5rem;
+  font-size: 1rem;
 }
 
-.footer-content p {
-  margin: 0;
-}
-
-.footer-nav ul {
+#search-results {
   list-style: none;
-  padding: 0;
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
 }
 
-.footer-nav ul li {
-  display: inline;
-  margin: 0 1rem;
+#search-results li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
 }
 
-.footer-nav ul li a {
-  color: #fff;
+#search-results li a {
   text-decoration: none;
+  color: #333;
 }
 
-
-.ad-container {
-  margin-top: 20px;
-}
-
-.ad-container h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.ad-content {
-  background: #e9ecef;
-  padding: 10px;
-  border-radius: 5px;
+#search-results li a:hover {
+  background: #f0f0f0;
 }
