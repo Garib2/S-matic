@@ -4,7 +4,7 @@ title: Home
 toc: true
 ---
 
-## Section 1
+## HIDO
 Content for section 1.
 ## Section 2
 Content for section 2.
