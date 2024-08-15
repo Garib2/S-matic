@@ -1,35 +1,5 @@
-import pyvista as pv
-from pymatgen.core import Lattice, Structure
-from pymatgen.core.surface import SlabGenerator
-
-# Cubic lattice with a=3.57 Å, simple cubic (P=1)
-lattice = Lattice.cubic(3.57)
-bulk_structure = Structure(lattice, ["Si"], [[0, 0, 0]])
-
-# Slab 생성: (1, 0, 0) 방향으로 슬랩 생성, 두께 10Å, 진공층 15Å
-slabgen = SlabGenerator(bulk_structure, (1, 0, 0), min_slab_size=10, min_vacuum_size=15)
-slabs = slabgen.get_slabs()
-
-# 첫 번째 생성된 slab 선택
-slab = slabs[0]
-
-# PyVista를 이용한 슬랩 시각화
-plotter = pv.Plotter()
-
-# 고체 영역 시각화
-for site in slab.sites:
-    plotter.add_mesh(pv.Sphere(radius=0.5, center=site.coords), color="blue")
-
-# 진공 영역을 시각화하기 위해 슬랩의 크기와 진공 크기를 기반으로 경계 상자를 표시
-# 여기서 단위 셀의 경계선을 나타냄
-boundary_box = slab.lattice.matrix.T @ [[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0],
-                                        [0, 0, 1], [1, 0, 1], [0, 1, 1], [1, 1, 1]]
-plotter.add_mesh(pv.Cube(bounds=boundary_box.ravel()), opacity=0.1, color="yellow")
-
-# 진공 영역 표시 (여기서는 슬랩 위에 투명한 경계 상자를 추가해 진공 영역을 시각화)
-vacuum_box = boundary_box + [0, 0, 15]  # 진공을 나타내는 경계선
-plotter.add_mesh(pv.Cube(bounds=vacuum_box.ravel()), opacity=0.1, color="white")
-
-# 축 표시
-plotter.add_axes()
-plotter.show()
+Traceback (most recent call last):
+  File "d:\Python\new.py", line 25, in <module>
+    boundary_box = slab.lattice.matrix.T @ [[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0],
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 8 is different from 3)
