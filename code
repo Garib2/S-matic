@@ -21,10 +21,10 @@ plotter = pv.Plotter()
 for site in slab.sites:
     plotter.add_mesh(pv.Sphere(radius=0.5, center=site.coords), color="blue")
 
-# 경계 표시 - 슬랩 경계 상자 계산 및 시각화
+# 고체 경계선 표시
 lattice_vectors = slab.lattice.matrix
 
-# 단위 셀의 8개 모서리 좌표 계산
+# 모서리 좌표 계산
 corners = np.array([
     [0, 0, 0],
     lattice_vectors[0],
@@ -46,6 +46,25 @@ edges = [
 
 for edge in edges:
     plotter.add_mesh(pv.Line(np.array(edge[0]), np.array(edge[1])), color="black", line_width=2)
+
+# 진공 영역 표시 (진공을 강조하기 위해 진공 영역의 상자를 추가)
+vacuum_height = 15  # 진공 층의 두께
+vacuum_box = np.array([
+    [0, 0, 0], 
+    [0, 0, vacuum_height],
+    [0, lattice_vectors[1][1], 0],
+    [0, lattice_vectors[1][1], vacuum_height],
+    [lattice_vectors[0][0], 0, 0],
+    [lattice_vectors[0][0], 0, vacuum_height],
+    [lattice_vectors[0][0], lattice_vectors[1][1], 0],
+    [lattice_vectors[0][0], lattice_vectors[1][1], vacuum_height]
+])
+
+# 진공 영역 경계선 그리기
+for i in range(4):
+    plotter.add_mesh(pv.Line(vacuum_box[i], vacuum_box[i + 4]), color="red", line_width=2)  # 진공 상단과 하단 연결
+    plotter.add_mesh(pv.Line(vacuum_box[i], vacuum_box[(i + 1) % 4]), color="red", line_width=2)  # 진공 하단 면 경계
+    plotter.add_mesh(pv.Line(vacuum_box[i + 4], vacuum_box[(i + 1) % 4 + 4]), color="red", line_width=2)  # 진공 상단 면 경계
 
 # 축 표시
 plotter.add_axes()
