@@ -1,5 +1,52 @@
-Traceback (most recent call last):
-  File "d:\Python\new.py", line 25, in <module>
-    boundary_box = slab.lattice.matrix.T @ [[0, 0, 0], [1, 0, 0], [0, 1, 0], [1, 1, 0],
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 8 is different from 3)
+import pyvista as pv
+from pymatgen.core import Lattice, Structure
+from pymatgen.core.surface import SlabGenerator
+import numpy as np
+
+# Cubic lattice with a=3.57 Å, simple cubic (P=1)
+lattice = Lattice.cubic(3.57)
+bulk_structure = Structure(lattice, ["Si"], [[0, 0, 0]])
+
+# Slab 생성: (1, 0, 0) 방향으로 슬랩 생성, 두께 10Å, 진공층 15Å
+slabgen = SlabGenerator(bulk_structure, (1, 0, 0), min_slab_size=10, min_vacuum_size=15)
+slabs = slabgen.get_slabs()
+
+# 첫 번째 생성된 slab 선택
+slab = slabs[0]
+
+# PyVista를 이용한 슬랩 시각화
+plotter = pv.Plotter()
+
+# 원자 시각화
+for site in slab.sites:
+    plotter.add_mesh(pv.Sphere(radius=0.5, center=site.coords), color="blue")
+
+# 경계 표시 - 슬랩 경계 상자 계산 및 시각화
+lattice_vectors = slab.lattice.matrix
+
+# 단위 셀의 8개 모서리 좌표 계산
+corners = np.array([
+    [0, 0, 0],
+    lattice_vectors[0],
+    lattice_vectors[1],
+    lattice_vectors[2],
+    lattice_vectors[0] + lattice_vectors[1],
+    lattice_vectors[1] + lattice_vectors[2],
+    lattice_vectors[0] + lattice_vectors[2],
+    lattice_vectors[0] + lattice_vectors[1] + lattice_vectors[2]
+])
+
+# 모서리를 연결하는 경계선 그리기
+edges = [
+    [corners[0], corners[1]], [corners[0], corners[2]], [corners[0], corners[3]],
+    [corners[1], corners[4]], [corners[1], corners[6]], [corners[2], corners[4]],
+    [corners[2], corners[5]], [corners[3], corners[6]], [corners[3], corners[5]],
+    [corners[4], corners[7]], [corners[5], corners[7]], [corners[6], corners[7]]
+]
+
+for edge in edges:
+    plotter.add_mesh(pv.Line(np.array(edge[0]), np.array(edge[1])), color="black", line_width=2)
+
+# 축 표시
+plotter.add_axes()
+plotter.show()
