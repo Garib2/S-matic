@@ -20,12 +20,14 @@ ATOMIC_SPECIES
     N  14.0067  N.pbe-n-rrkjus.UPF
 ATOMIC_POSITIONS (angstrom)
     P   0.00 0.00 0.00
-    In  0.50 0.50 0.50
-    N   1.00 1.00 1.00
-    ...  ! 나머지 원자 위치 정의
+    In  1.00 1.00 1.00
+    N   2.00 2.00 2.00
+    P   3.00 3.00 3.00
+    In  4.00 4.00 4.00
+    N   5.00 5.00 5.00
 CELL_PARAMETERS (angstrom)
     10.0 0.0 0.0
     0.0 10.0 0.0
     0.0 0.0 20.0  ! i층의 두께 반영
 K_POINTS automatic
-    8 8 8 0 0 0
+    6 6 6 0 0 0
