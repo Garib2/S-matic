@@ -5,27 +5,27 @@
     pseudo_dir = './pseudo/',
 /
 &SYSTEM
-    ibrav = 0,
-    nat = 10,  ! 총 원자 수
-    ntyp = 3,  ! 원소 종류 수 (p형, i형, n형)
-    ecutwfc = 40.0,
-    ecutrho = 320.0,
+    ibrav = 0, 
+    nat = 6,  ! 총 원자 수
+    ntyp = 3,  ! 원소 종류 수
+    ecutwfc = 40.0, 
+    ecutrho = 320.0, 
 /
 &ELECTRONS
     conv_thr = 1.0d-8,
 /
 ATOMIC_SPECIES
-    P  1.0079  P.pz-vbc.UPF
-    In  1.0079  In.pz-vbc.UPF
-    N  1.0079  N.pz-vbc.UPF
+    P  30.9738  P.pbe-n-rrkjus.UPF
+    In  114.818  In.pbe-n-rrkjus.UPF
+    N  14.0067  N.pbe-n-rrkjus.UPF
 ATOMIC_POSITIONS (angstrom)
     P   0.00 0.00 0.00
-    In  0.25 0.25 0.25
-    N   0.50 0.50 0.50
-    ...  ! 더 많은 원자 위치 추가
+    In  0.50 0.50 0.50
+    N   1.00 1.00 1.00
+    ...  ! 나머지 원자 위치 정의
 CELL_PARAMETERS (angstrom)
-    5.0 0.0 0.0
-    0.0 5.0 0.0
-    0.0 0.0 15.0  ! i층의 두께 설정
+    10.0 0.0 0.0
+    0.0 10.0 0.0
+    0.0 0.0 20.0  ! i층의 두께 반영
 K_POINTS automatic
-    8 8 1 0 0 0
+    8 8 8 0 0 0
