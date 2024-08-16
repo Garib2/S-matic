@@ -1,8 +1,7 @@
-from pymatgen.core import Structure
-from pymatgen.io.cif import CifWriter
-
-# Quantum ESPRESSO 입력 파일로부터 구조 로드
-structure = Structure.from_file("input_file.in")
-
-# 3D 시각화
-structure.to(filename="structure.cif")
+Traceback (most recent call last):
+  File "d:\Python\new.py", line 5, in <module>
+    structure = Structure.from_file("input_tmp.in")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymatgen\core\structure.py", line 3117, in from_file
+    from pymatgen.io.fleur import FleurInput
+ModuleNotFoundError: No module named 'pymatgen.io.fleur'
