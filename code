@@ -1,24 +1,8 @@
-&CONTROL
-    calculation = 'scf',
-    prefix = 'material',
-    outdir = './tmp/',
-    pseudo_dir = './pseudo/',
-/
-&SYSTEM
-    ibrav = 2,
-    celldm(1) = 10.2,
-    nat = 2,
-    ntyp = 1,
-    ecutwfc = 30.0,
-    ecutrho = 240.0,
-/
-&ELECTRONS
-    conv_thr = 1.0d-8,
-/
-ATOMIC_SPECIES
-    Si  28.0855  Si.pz-vbc.UPF
-ATOMIC_POSITIONS (alat)
-    Si 0.00 0.00 0.00
-    Si 0.25 0.25 0.25
-K_POINTS automatic
-    8 8 8 0 0 0
+from pymatgen.core import Structure
+from pymatgen.io.cif import CifWriter
+
+# Quantum ESPRESSO 입력 파일로부터 구조 로드
+structure = Structure.from_file("input_file.in")
+
+# 3D 시각화
+structure.to(filename="structure.cif")
