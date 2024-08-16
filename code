@@ -1,7 +1,9 @@
-Traceback (most recent call last):
-  File "d:\Python\new.py", line 5, in <module>
-    structure = Structure.from_file("input_tmp.in")
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\site-packages\pymatgen\core\structure.py", line 3117, in from_file
-    from pymatgen.io.fleur import FleurInput
-ModuleNotFoundError: No module named 'pymatgen.io.fleur'
+from pymatgen.io.qe import PwInput
+
+# Quantum ESPRESSO 입력 파일을 읽어서 구조 객체 생성
+structure = PwInput.from_file("input_tmp.in").structure
+
+# 구조를 CIF 파일로 저장
+structure.to("structure.cif")
+
+# CIF 파일을 VESTA 또는 다른 도구로 시각화
