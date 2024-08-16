@@ -1,18 +1,24 @@
-from pymatgen.io.qe import Vasprun
-from pymatgen.electronic_structure.plotter import BSPlotter
-
-# VASP 또는 Quantum ESPRESSO 계산 결과 (vasprun.xml 파일이나 bands.xml)에서 밴드 구조 가져오기
-# 여기에 경로를 제공해야 합니다.
-# vasprun = Vasprun("path/to/vasprun.xml")
-bands_data = Vasprun("path/to/bands.xml")  # 밴드구조 계산 파일 로드
-
-# 밴드 구조 가져오기
-band_structure = bands_data.get_band_structure()
-
-# 밴드 구조 플로팅
-plotter = BSPlotter(band_structure)
-plotter.get_plot().show()
-
-# 밴드갭 계산
-band_gap = band_structure.get_band_gap()
-print(f"Band Gap: {band_gap['energy']} eV")
+&CONTROL
+    calculation = 'scf',
+    prefix = 'material',
+    outdir = './tmp/',
+    pseudo_dir = './pseudo/',
+/
+&SYSTEM
+    ibrav = 2,
+    celldm(1) = 10.2,
+    nat = 2,
+    ntyp = 1,
+    ecutwfc = 30.0,
+    ecutrho = 240.0,
+/
+&ELECTRONS
+    conv_thr = 1.0d-8,
+/
+ATOMIC_SPECIES
+    Si  28.0855  Si.pz-vbc.UPF
+ATOMIC_POSITIONS (alat)
+    Si 0.00 0.00 0.00
+    Si 0.25 0.25 0.25
+K_POINTS automatic
+    8 8 8 0 0 0
