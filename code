@@ -1,33 +1,27 @@
-&CONTROL
-    calculation = 'scf',
-    prefix = 'pin',
-    outdir = './tmp/',
-    pseudo_dir = './pseudo/',
-/
-&SYSTEM
-    ibrav = 0, 
-    nat = 6,  ! 총 원자 수
-    ntyp = 3,  ! 원소 종류 수
-    ecutwfc = 40.0, 
-    ecutrho = 320.0, 
-/
-&ELECTRONS
-    conv_thr = 1.0d-8,
-/
-ATOMIC_SPECIES
-    P  30.9738  P.pbe-n-rrkjus.UPF
-    In  114.818  In.pbe-n-rrkjus.UPF
-    N  14.0067  N.pbe-n-rrkjus.UPF
-ATOMIC_POSITIONS (angstrom)
-    P   0.00 0.00 0.00
-    In  1.00 1.00 1.00
-    N   2.00 2.00 2.00
-    P   3.00 3.00 3.00
-    In  4.00 4.00 4.00
-    N   5.00 5.00 5.00
-CELL_PARAMETERS (angstrom)
-    10.0 0.0 0.0
-    0.0 10.0 0.0
-    0.0 0.0 20.0  ! i층의 두께 반영
-K_POINTS automatic
-    6 6 6 0 0 0
+At line 819 of file xmltools.f90
+Fortran runtime error: End of file
+
+Error termination. Backtrace:
+#0  0x7f5e6c2aa960 in ???
+#1  0x7f5e6c2ab4d9 in ???
+#2  0x7f5e6c2ac10f in ???
+#3  0x7f5e6c4ff17b in ???
+#4  0x7f5e6c4f85fd in ???
+#5  0x7f5e6c4f92aa in ???
+#6  0x7f5e6c4feb7a in ???
+#7  0x564a379ecef9 in __xmltools_MOD_readtag_rv
+        at /home/lee/q-e-qe-7.2/upflib/xmltools.f90:819
+#8  0x564a379cd3ff in __read_upf_new_module_MOD_read_pp_nonlocal
+        at /home/lee/q-e-qe-7.2/upflib/read_upf_new.f90:456
+#9  0x564a379cfe1b in __read_upf_new_module_MOD_read_upf_new
+        at /home/lee/q-e-qe-7.2/upflib/read_upf_new.f90:103
+#10  0x564a377a2bc1 in __read_pseudo_mod_MOD_readpp
+        at /home/lee/q-e-qe-7.2/Modules/read_pseudo.f90:130
+#11  0x564a373a3be7 in iosys_
+        at /home/lee/q-e-qe-7.2/PW/src/input.f90:1625
+#12  0x564a374337f0 in run_pwscf_
+        at /home/lee/q-e-qe-7.2/PW/src/run_pwscf.f90:114
+#13  0x564a373450a2 in pwscf
+        at /home/lee/q-e-qe-7.2/PW/src/pwscf.f90:85
+#14  0x564a37344dde in main
+        at /home/lee/q-e-qe-7.2/PW/src/pwscf.f90:40
