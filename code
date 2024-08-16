@@ -1,3 +1,31 @@
-  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\site-packages\ase\io\espresso.py", line 550, in read_espresso_in
-    raise ValueError(ibrav_error_message)
-ValueError: ASE does not support ibrav != 0. Note that with ibrav == 0, Quantum ESPRESSO will still detect the symmetries of your system because the CELL_PARAMETERS are defined to a high level of precision.
+&CONTROL
+    calculation = 'scf',
+    prefix = 'pin',
+    outdir = './tmp/',
+    pseudo_dir = './pseudo/',
+/
+&SYSTEM
+    ibrav = 0,
+    nat = 10,  ! 총 원자 수
+    ntyp = 3,  ! 원소 종류 수 (p형, i형, n형)
+    ecutwfc = 40.0,
+    ecutrho = 320.0,
+/
+&ELECTRONS
+    conv_thr = 1.0d-8,
+/
+ATOMIC_SPECIES
+    P  1.0079  P.pz-vbc.UPF
+    In  1.0079  In.pz-vbc.UPF
+    N  1.0079  N.pz-vbc.UPF
+ATOMIC_POSITIONS (angstrom)
+    P   0.00 0.00 0.00
+    In  0.25 0.25 0.25
+    N   0.50 0.50 0.50
+    ...  ! 더 많은 원자 위치 추가
+CELL_PARAMETERS (angstrom)
+    5.0 0.0 0.0
+    0.0 5.0 0.0
+    0.0 0.0 15.0  ! i층의 두께 설정
+K_POINTS automatic
+    8 8 1 0 0 0
