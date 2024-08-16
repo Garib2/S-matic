@@ -1,9 +1,8 @@
-from pymatgen.io.qe import PwInput
+from ase.io import read
+from ase.visualize import view
 
-# Quantum ESPRESSO 입력 파일을 읽어서 구조 객체 생성
-structure = PwInput.from_file("input_tmp.in").structure
+# Quantum ESPRESSO 입력 파일 읽기
+atoms = read('input_file.in', format='espresso-in')
 
-# 구조를 CIF 파일로 저장
-structure.to("structure.cif")
-
-# CIF 파일을 VESTA 또는 다른 도구로 시각화
+# 구조 시각화
+view(atoms)
