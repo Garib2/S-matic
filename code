@@ -1,8 +1,3 @@
-from ase.io import read
-from ase.visualize import view
-
-# Quantum ESPRESSO 입력 파일 읽기
-atoms = read('input_file.in', format='espresso-in')
-
-# 구조 시각화
-view(atoms)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\site-packages\ase\io\espresso.py", line 550, in read_espresso_in
+    raise ValueError(ibrav_error_message)
+ValueError: ASE does not support ibrav != 0. Note that with ibrav == 0, Quantum ESPRESSO will still detect the symmetries of your system because the CELL_PARAMETERS are defined to a high level of precision.
