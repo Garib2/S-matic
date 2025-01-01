@@ -178,6 +178,7 @@ body {
     flex-direction: column;
   }
 }
+@charset "UTF-8";
 /* styles.scss */
 /* reset.scss */
 *,
@@ -303,6 +304,8 @@ main {
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Sticky 위치 고정 */
+  top: 10px; /* 뷰포트 상단에서 10px 떨어진 위치 유지 */
 }
 
 #toc h2 {
@@ -394,12 +397,15 @@ footer {
     flex-direction: column;
   }
 }
+@charset "UTF-8";
 /* toc.scss */
 #toc {
   background: #f8f9fa;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky; /* Sticky 위치 고정 */
+  top: 10px; /* 뷰포트 상단에서 10px 떨어진 위치 유지 */
 }
 
 #toc h2 {
